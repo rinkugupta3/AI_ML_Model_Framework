@@ -20,7 +20,7 @@ api_key = os.getenv("GEMINI_API_KEY")
 
 # Configure Gemini API
 # genai.configure(api_key=api_key)
-genai.configure(api_key="AIzaSyC-jC_ZGabKz5IH-GXP9L7k8J4455XrH8lLcd4")
+genai.configure(api_key="")
 model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
 # Load a spaCy model (you might need to download one)
