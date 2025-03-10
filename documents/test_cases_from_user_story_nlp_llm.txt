@@ -1,0 +1,164 @@
+## Test Case 1
+
+## Test Case ID: TC_LOGIN_003
+
+## Test Case Type: Edge Case
+
+## Description: Verify login with a very long username.
+
+## Feature: Login
+
+## Preconditions: None.
+
+## Test Data: 
+| Field | Value |
+|---|---|
+| Username |  A string of 256 characters (e.g., "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")  |
+| Password |  A valid password (e.g., "password123") |
+
+
+## Steps:
+
+1.  Navigate to the login page.
+2.  Enter the 256-character username in the "Username" field.
+3.  Enter the valid password in the "Password" field.
+4.  Click the "Login" button.
+
+
+## Expected Result:
+
+1.  The login page should load successfully.
+2.  The 256-character username should be displayed in the "Username" field.
+3.  The password should not be visible in the "Password" field.
+4.  Either:
+    * **Success:** The user is successfully logged in and redirected to the appropriate landing page.
+    * **Failure:** An error message is displayed indicating the username is too long, and the user remains on the login page. The error message should be clear and user-friendly.
+
+
+## Postconditions:  
+* If successful, the user is logged in. The application should be in the logged-in state.
+* If unsuccessful, the user remains on the login page. No changes to the application state occur.
+
+## Pass/Fail Criteria:
+
+* **Pass:** The test passes if the expected result matches the actual result.  The test should also pass if the application correctly handles an excessively long username by displaying an appropriate error message.
+* **Fail:** The test fails if the expected result does not match the actual result (e.g., unexpected error, application crash, successful login with a truncated username, no error message displayed).
+
+## Notes:
+
+* This test case aims to verify the application's ability to handle usernames exceeding the typical length limitations. 
+* The chosen username length (256 characters) is an example; the actual limit should be based on system requirements and specifications. This value may need to be adjusted depending on the specific application.
+*  Consider testing with different long usernames containing various character types (e.g., alphanumeric, special characters, spaces) if the application permits it.
+
+--------------------------------------------------------------------------------
+
+## Test Case 2
+
+## Test Case ID: TC_LOGIN_003
+
+**Test Case Type:** Edge Case
+
+**Description:** Verify login with special characters in the username.
+
+**Feature:** Login
+
+**Preconditions:** None.
+
+**Test Data:**
+
+| Username             | Password    |
+|----------------------|-------------|
+| test.user@example.com | password123 |
+| test_user@example.com | password123 |
+| test+user@example.com | password123 |
+
+
+**Steps:**
+
+1.  Navigate to the login page.
+2.  Enter "test.user@example.com" in the username field.
+3.  Enter "password123" in the password field.
+4.  Click the "Login" button.
+5.  Navigate to the login page.
+6.  Enter "test_user@example.com" in the username field.
+7.  Enter "password123" in the password field.
+8.  Click the "Login" button.
+9.  Navigate to the login page.
+10. Enter "test+user@example.com" in the username field.
+11. Enter "password123" in the password field.
+12. Click the "Login" button.
+
+**Expected Result:**
+
+1.  The login page should load successfully.
+2.  The username field should populate with "test.user@example.com".
+3.  The password field should populate with "password123".
+4.  The user should be successfully logged in and redirected to the appropriate landing page.
+5.  The login page should load successfully.
+6.  The username field should populate with "test_user@example.com".
+7.  The password field should populate with "password123".
+8.  The user should be successfully logged in and redirected to the appropriate landing page.
+9.  The login page should load successfully.
+10. The username field should populate with "test+user@example.com".
+11. The password field should populate with "password123".
+12. The user should be successfully logged in and redirected to the appropriate landing page.
+
+
+**Postconditions:** The user should be logged in.
+
+**Pass/Fail Criteria:**
+
+*   **Pass:** All steps execute as expected and the user is successfully logged in for all three username variations.
+*   **Fail:**  Any step does not produce the expected result, or the user is not logged in.
+
+**Notes:** This test case specifically focuses on valid special characters within the username allowed by RFC standards for email addresses, which often are accepted as usernames.  Other special characters should be covered in separate test cases, particularly those often used for injection attacks.
+
+--------------------------------------------------------------------------------
+
+## Test Case 1
+
+## Test Case ID: TC_ACCESSIBILITY_001
+
+## Test Case Type: Accessibility - Robust
+
+## Description: Verify that the login page is compatible with assistive technologies.
+
+## Feature: Login
+
+## Preconditions: 
+* Login page is displayed.
+* Screen reader software (e.g., NVDA, JAWS, VoiceOver) is installed and running.
+
+## Test Data: N/A
+
+
+## Steps:
+
+| Step | Action                                      | Expected Result                                                                                                                                     |
+|------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | Navigate to the login page using the keyboard only (Tab key). | Focus should visibly move sequentially through all interactive elements on the page (username field, password field, login button, any links, etc.) |
+| 2    | Activate the screen reader.                 | The screen reader should announce the page title and provide a brief description of the page content.                                             |
+| 3    | Use the Tab key to move to the username field. | The screen reader should announce the label and purpose of the username field (e.g., "Username, edit text").                                       |
+| 4    | Use the Tab key to move to the password field. | The screen reader should announce the label and purpose of the password field (e.g., "Password, edit text, password").                           |
+| 5    | Use the Tab key to move to the login button.  | The screen reader should announce the label and purpose of the button (e.g., "Login, button").                                                  |
+| 6    | Use the screen reader's form mode (if available) to navigate the form fields. | The screen reader should correctly identify and announce each form field and its associated label.                                                |
+| 7    | Check for ARIA landmarks and labels.        | Appropriate ARIA landmarks (e.g., `<main>`, `<form>`) and labels should be used to provide structural information to assistive technologies.           |
+
+
+## Postconditions:
+The login page remains displayed. Screen reader remains active.
+
+## Pass/Fail Criteria:
+
+* **Pass:** All expected results are met.
+* **Fail:** Any expected result is not met.
+
+
+## Notes:
+* This test case should be executed with different screen reader software (NVDA, JAWS, VoiceOver) and on different browsers (Chrome, Firefox, Safari, Edge) to ensure broad compatibility.
+*  Check for sufficient color contrast between text and background. This aspect, while part of accessibility, can be covered more specifically in a dedicated color contrast test case.  This case focuses on screen reader compatibility.
+* Consider testing with different zoom levels (up to 200%) to ensure the page remains usable and readable.
+* Verify that any error messages or validation instructions are also accessible to screen readers.  This could be addressed in separate, more focused test cases as well.
+
+--------------------------------------------------------------------------------
+

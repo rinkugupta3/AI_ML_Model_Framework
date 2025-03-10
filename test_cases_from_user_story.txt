@@ -1,0 +1,94 @@
+## Test Case 1
+
+## Test Case ID: TC_LOGIN_001
+
+## Test Case Type: Functional - Positive
+
+## Description: Verify successful login with valid credentials.
+
+## Feature: Login
+
+## Preconditions: User account exists.
+
+## Test Data:
+
+| Field        | Value                 |
+|--------------|----------------------|
+| Username     | testuser              |
+| Password     | password123           |
+
+
+## Steps:
+
+| Step # | Step Description                                           | Expected Result                                          |
+|--------|-------------------------------------------------------|----------------------------------------------------------|
+| 1      | Navigate to the login page.                             | Login page is displayed.                                   |
+| 2      | Enter the valid username (testuser) in the username field. | Username is displayed in the username field.                |
+| 3      | Enter the valid password (password123) in the password field. | Password field displays placeholder characters (e.g., dots). |
+| 4      | Click the "Login" button.                             | User is redirected to the home page/dashboard.             |
+
+
+## Expected Result: User is successfully logged in and redirected to the appropriate landing page (e.g., home page, dashboard).
+
+
+## Postconditions: User is logged in and session is active.
+
+
+## Pass/Fail Criteria:
+
+*   **Pass:** All steps are completed successfully, and the expected result is observed for each step. User is logged in.
+*   **Fail:** Any step fails or the expected result is not observed.  User is not logged in.
+
+
+## Notes:  This test case assumes the user account "testuser" with password "password123" exists and is in an active state. This test case covers the standard login flow. Additional test cases should be created to cover edge cases like incorrect password, invalid username, locked accounts, etc.
+
+--------------------------------------------------------------------------------
+
+## Test Case 2
+
+## Test Case ID: TC_LOGIN_002
+
+## Test Case Type: Functional - Negative
+
+## Description: Verify login failure with invalid credentials.
+
+## Feature: Login
+
+## Preconditions: None.
+
+## Test Data:
+
+| Field        | Value                  |
+|--------------|-------------------------|
+| Username     | invalid_user           |
+| Password     | incorrect_password      |
+
+
+## Steps:
+
+1.  Navigate to the application login page.
+2.  Enter "invalid_user" in the Username field.
+3.  Enter "incorrect_password" in the Password field.
+4.  Click the "Login" button.
+
+
+## Expected Result:
+
+1.  The application login page is displayed.
+2.  The Username field is populated with "invalid_user".
+3.  The Password field is populated with "incorrect_password".
+4.  An error message is displayed indicating invalid credentials.  The user is NOT logged in.  The user remains on the login page.
+
+
+## Postconditions: The user remains on the login page, not logged in.
+
+## Pass/Fail Criteria:
+
+*   **Pass:** An error message indicating invalid credentials is displayed, and the user remains on the login page, not logged in.
+*   **Fail:** The user is successfully logged in, no error message is displayed, or an unexpected error occurs.
+
+
+## Notes: This test case verifies the system's ability to handle incorrect login attempts and prevent unauthorized access. It's important to verify the clarity and visibility of the error message displayed to the user.  This test should be repeated with various other combinations of invalid credentials (e.g., valid username, invalid password; invalid username, valid password; empty username, empty password) to ensure comprehensive coverage.
+
+--------------------------------------------------------------------------------
+
