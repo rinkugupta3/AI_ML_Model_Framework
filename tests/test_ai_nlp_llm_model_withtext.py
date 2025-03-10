@@ -5,7 +5,7 @@ import google.generativeai as genai
 nlp = spacy.load("en_core_web_sm")
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyC-jC_ZGabKz5IH-GXP9L7k8JXrH8lLcd4")
+genai.configure(api_key="")
 model = genai.GenerativeModel('gemini-1.5-pro')
 
 # Sample Text
